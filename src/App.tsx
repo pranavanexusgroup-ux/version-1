@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, '');
 import { AuthProvider } from './context/AuthContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -37,7 +38,16 @@ import { AdminSettings } from './pages/admin/AdminSettings';
 import { AdminUsers } from './pages/admin/AdminUsers';
 
 export default function App() {
-  const [currentPath, setCurrentPath] = useState<string>(() => `${window.location.pathname || '/'}${window.location.search}`);
+  const getAppPath = () => {
+  const pathname = window.location.pathname || '/';
+  const path = BASE_PATH && pathname.startsWith(BASE_PATH)
+    ? pathname.slice(BASE_PATH.length) || '/'
+    : pathname;
+
+  return `${path}${window.location.search}`;
+};
+
+const [currentPath, setCurrentPath] = useState<string>(getAppPath());
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [modalServiceId, setModalServiceId] = useState<number | undefined>(undefined);
   const [modalDestination, setModalDestination] = useState<string | undefined>(undefined);
@@ -45,17 +55,20 @@ export default function App() {
   // Sync with browser navigation
   useEffect(() => {
     const handlePopState = () => {
-      setCurrentPath(`${window.location.pathname || '/'}${window.location.search}`);
-    };
+  setCurrentPath(getAppPath());
+};
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   const navigate = (path: string) => {
-    window.history.pushState({}, '', path);
-    setCurrentPath(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  const fullPath = `${BASE_PATH}${cleanPath === '/' ? '/' : cleanPath}`;
+
+  window.history.pushState({}, '', fullPath);
+  setCurrentPath(cleanPath);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
   const openEnquiryModal = (serviceId?: number, destination?: string) => {
     setModalServiceId(serviceId);
