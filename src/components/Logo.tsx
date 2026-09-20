@@ -5,130 +5,350 @@ interface LogoProps {
   variant?: 'full' | 'compact' | 'light' | 'icon-only';
 }
 
-export const Logo: React.FC<LogoProps> = ({ className = 'h-12', variant = 'full' }) => {
-  if (variant === 'icon-only') {
-    return (
-      <div className={`relative inline-flex items-center justify-center ${className}`}>
-        <svg viewBox="0 0 240 240" className="h-full w-auto" fill="none">
-          <defs>
-            <linearGradient id="icoGold" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FFDF73" />
-              <stop offset="50%" stopColor="#F4C430" />
-              <stop offset="100%" stopColor="#C59619" />
-            </linearGradient>
-            <linearGradient id="icoBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#38BDF8" />
-              <stop offset="50%" stopColor="#0EA5E9" />
-              <stop offset="100%" stopColor="#0369A1" />
-            </linearGradient>
-            <linearGradient id="icoLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#84CC16" />
-              <stop offset="60%" stopColor="#65A30D" />
-              <stop offset="100%" stopColor="#4D7C0F" />
-            </linearGradient>
-            <linearGradient id="icoRing" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#F4C430" />
-              <stop offset="45%" stopColor="#EAB308" />
-              <stop offset="55%" stopColor="#38BDF8" />
-              <stop offset="100%" stopColor="#0284C7" />
-            </linearGradient>
-          </defs>
-
-          <g transform="translate(120, 120)">
-            {/* Outer Ring */}
-            <circle cx="0" cy="0" r="96" fill="none" stroke="url(#icoRing)" strokeWidth="8" />
-
-            {/* Golden Medical Cross */}
-            <g transform="translate(0, -68)">
-              <rect x="-5" y="-14" width="10" height="28" rx="2" fill="url(#icoGold)" />
-              <rect x="-14" y="-5" width="28" height="10" rx="2" fill="url(#icoGold)" />
-            </g>
-
-            {/* Blue Center Head */}
-            <circle cx="0" cy="-26" r="15" fill="url(#icoBlue)" />
-
-            {/* Reaching Figures */}
-            <path d="M 0,-4 C -19,-15 -38,-36 -38,-60 C -38,-62 -33,-62 -29,-57 C -21,-41 -12,-27 -3,-15 C -10,9 -19,36 0,62 C -28,33 -19,-2 -13,-17 Z" fill="url(#icoBlue)" />
-            <path d="M 0,-4 C 19,-15 38,-36 38,-60 C 38,-62 33,-62 29,-57 C 21,-41 12,-27 3,-15 C 10,9 19,36 0,62 C 28,33 19,-2 13,-17 Z" fill="url(#icoBlue)" opacity="0.9" />
-
-            {/* Vitality Leaf */}
-            <path d="M 3,0 C 16,10 35,26 37,48 C 37,57 28,64 17,64 C 9,64 3,55 2,45 C 0,29 2,14 3,0 Z" fill="url(#icoLeaf)" />
-            <path d="M 3,4 Q 19,33 24,59" fill="none" stroke="#A3E635" strokeWidth="2" strokeLinecap="round" />
-          </g>
-        </svg>
-      </div>
-    );
-  }
-
+const PranavaNexusCareLogo: React.FC<LogoProps> = ({
+  className = 'w-[270px] h-auto shrink-0',
+  variant = 'full',
+}) => {
   const isLight = variant === 'light';
 
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      {/* Visual Logo Emblem */}
-      <div className="relative shrink-0 w-11 h-11 md:w-13 md:h-13">
-        <svg viewBox="0 0 240 240" className="w-full h-full drop-shadow-sm" fill="none">
-          <defs>
-            <linearGradient id="logoGold" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FFDF73" />
-              <stop offset="50%" stopColor="#F4C430" />
-              <stop offset="100%" stopColor="#C59619" />
-            </linearGradient>
-            <linearGradient id="logoBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#38BDF8" />
-              <stop offset="50%" stopColor="#0EA5E9" />
-              <stop offset="100%" stopColor="#0369A1" />
-            </linearGradient>
-            <linearGradient id="logoLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#84CC16" />
-              <stop offset="60%" stopColor="#65A30D" />
-              <stop offset="100%" stopColor="#4D7C0F" />
-            </linearGradient>
-            <linearGradient id="logoRing" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#F4C430" />
-              <stop offset="45%" stopColor="#EAB308" />
-              <stop offset="55%" stopColor="#38BDF8" />
-              <stop offset="100%" stopColor="#0284C7" />
-            </linearGradient>
-          </defs>
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 15 500 430"
+  className={className}
+  fill="none"
+  preserveAspectRatio="xMidYMid meet"
+  style={{
+  width: '90px',
+  height: 'auto',
+  minWidth: '90px',
+  maxWidth: 'none',
+  display: 'block',
+}}
+>
+      <defs>
+        {/* Gold Ring */}
+        <linearGradient
+          id="goldRingTop"
+          x1="0%"
+          y1="100%"
+          x2="100%"
+          y2="0%"
+        >
+          <stop offset="0%" stopColor="#D4AF37" />
+          <stop offset="50%" stopColor="#FFEE80" />
+          <stop offset="100%" stopColor="#FFD700" />
+        </linearGradient>
 
-          <g transform="translate(120, 120)">
-            <circle cx="0" cy="0" r="96" fill="none" stroke="url(#logoRing)" strokeWidth="8" />
+        {/* Blue Ring */}
+        <linearGradient
+          id="blueRingBottom"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop offset="0%" stopColor="#00C6FF" />
+          <stop offset="100%" stopColor="#0047AB" />
+        </linearGradient>
 
-            <g transform="translate(0, -68)">
-              <rect x="-5" y="-14" width="10" height="28" rx="2" fill="url(#logoGold)" />
-              <rect x="-14" y="-5" width="28" height="10" rx="2" fill="url(#logoGold)" />
-            </g>
+        {/* Medical Cross */}
+        <linearGradient
+          id="crossGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop offset="0%" stopColor="#FFF4B8" />
+          <stop offset="100%" stopColor="#FFB300" />
+        </linearGradient>
 
-            <circle cx="0" cy="-26" r="15" fill="url(#logoBlue)" />
+        {/* Head */}
+        <linearGradient
+          id="headGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop offset="0%" stopColor="#33D9FF" />
+          <stop offset="100%" stopColor="#0055FF" />
+        </linearGradient>
 
-            <path d="M 0,-4 C -19,-15 -38,-36 -38,-60 C -38,-62 -33,-62 -29,-57 C -21,-41 -12,-27 -3,-15 C -10,9 -19,36 0,62 C -28,33 -19,-2 -13,-17 Z" fill="url(#logoBlue)" />
-            <path d="M 0,-4 C 19,-15 38,-36 38,-60 C 38,-62 33,-62 29,-57 C 21,-41 12,-27 3,-15 C 10,9 19,36 0,62 C 28,33 19,-2 13,-17 Z" fill="url(#logoBlue)" opacity="0.9" />
+        {/* Human Wing */}
+        <linearGradient
+          id="leftWing"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop offset="0%" stopColor="#00C6FF" />
+          <stop offset="100%" stopColor="#003399" />
+        </linearGradient>
 
-            <path d="M 3,0 C 16,10 35,26 37,48 C 37,57 28,64 17,64 C 9,64 3,55 2,45 C 0,29 2,14 3,0 Z" fill="url(#logoLeaf)" />
-            <path d="M 3,4 Q 19,33 24,59" fill="none" stroke="#A3E635" strokeWidth="2" strokeLinecap="round" />
-          </g>
-        </svg>
-      </div>
+        {/* Leaf */}
+        <linearGradient
+          id="leafGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop offset="0%" stopColor="#6EEB48" />
+          <stop offset="100%" stopColor="#0E6B23" />
+        </linearGradient>
 
-      {/* Brand Typography matching official artwork */}
-      <div className="flex flex-col leading-none">
-        <span className={`font-serif tracking-[0.14em] font-bold text-sm md:text-base uppercase ${isLight ? 'text-white' : 'text-[#334155]'}`}>
+        {/* Main Text */}
+        <linearGradient
+          id="darkSilverText"
+          x1="0%"
+          y1="0%"
+          x2="0%"
+          y2="100%"
+        >
+          <stop
+            offset="0%"
+            stopColor={isLight ? '#FFFFFF' : '#334155'}
+          />
+          <stop
+            offset="100%"
+            stopColor={isLight ? '#CBD5E1' : '#0F172A'}
+          />
+        </linearGradient>
+
+        {/* Gold Text */}
+        <linearGradient
+          id="darkGoldText"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="0%"
+        >
+          <stop offset="0%" stopColor="#9A7B0C" />
+          <stop offset="50%" stopColor="#D4AF37" />
+          <stop offset="100%" stopColor="#856508" />
+        </linearGradient>
+      </defs>
+
+      {/* =========================
+          EMBLEM ICON
+      ========================= */}
+      <g transform="translate(250, 150)">
+        {/* Main Circle */}
+        <circle
+          cx="0"
+          cy="0"
+          r="132"
+          fill={isLight ? '#0F172A' : '#FFFFFF'}
+          stroke={isLight ? '#CBD5E1' : '#075985'}
+          strokeWidth="4"
+        />
+
+        {/* Gold Top Ring */}
+        <path
+          d="M -115 0 A 115 115 0 0 1 115 0"
+          stroke="url(#goldRingTop)"
+          strokeWidth="10"
+          fill="none"
+          strokeLinecap="round"
+        />
+
+        {/* Blue Bottom Ring */}
+        <path
+          d="M 115 0 A 115 115 0 0 1 -115 0"
+          stroke="url(#blueRingBottom)"
+          strokeWidth="10"
+          fill="none"
+          strokeLinecap="round"
+        />
+
+        {/* Medical Cross */}
+        <g transform="translate(0, -60)">
+          <rect
+            x="-7"
+            y="-22"
+            width="14"
+            height="44"
+            rx="3"
+            fill="url(#crossGradient)"
+          />
+
+          <rect
+            x="-22"
+            y="-7"
+            width="44"
+            height="14"
+            rx="3"
+            fill="url(#crossGradient)"
+          />
+        </g>
+
+        {/* Central Head */}
+        <circle
+          cx="0"
+          cy="-20"
+          r="12"
+          fill="url(#headGradient)"
+        />
+
+        {/* Left Human Wing */}
+        <path
+          d="M -4 -8 C -25 -15 -52 -38 -65 -65 C -55 -40 -38 -18 -15 2 C -10 7 -5 18 0 38 C -3 22 -3 10 -4 -8 Z"
+          fill="url(#leftWing)"
+        />
+
+        {/* Right Wing */}
+        <path
+          d="M 4 -8 C 25 -15 52 -38 65 -65 C 55 -38 35 -15 15 5 C 9 12 3 22 0 38 C 2 25 3 12 4 -8 Z"
+          fill="url(#leftWing)"
+          opacity="0.15"
+        />
+
+        {/* Green Leaf */}
+        <path
+          d="M 0 38 C 12 20 40 5 52 -25 C 38 -5 18 10 0 38 Z"
+          fill="url(#leafGradient)"
+        />
+
+        {/* Leaf Highlight */}
+        <path
+          d="M 0 38 C 15 22 32 5 43 -14"
+          stroke="#C8FFB0"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          fill="none"
+        />
+      </g>
+
+      {/* =========================
+          TYPOGRAPHY
+      ========================= */}
+      <g textAnchor="middle">
+
+        {/* PRANAVA */}
+        <text
+          x="250"
+          y="318"
+          fontFamily="Times New Roman, Georgia, serif"
+          fontSize="44"
+          fontWeight="bold"
+          letterSpacing="7"
+          fill="url(#darkSilverText)"
+          style={{
+            filter:
+              'drop-shadow(0px 1px 1px rgba(255,255,255,0.8))',
+          }}
+        >
           PRANAVA
-        </span>
-        <div className="flex items-center gap-1 my-0.5">
-          <span className="h-px w-2 bg-[#F4C430]"></span>
-          <span className="font-serif font-bold text-[10px] md:text-xs text-[#D97706] tracking-[0.2em] uppercase">
+        </text>
+
+        {/* NEXUS */}
+        <g transform="translate(250, 355)">
+          <line
+            x1="-155"
+            y1="0"
+            x2="-38"
+            y2="0"
+            stroke="url(#darkGoldText)"
+            strokeWidth="2"
+          />
+
+          <text
+            x="0"
+            y="9"
+            fontFamily="Arial, Helvetica, sans-serif"
+            fontSize="32"
+            fontWeight="bold"
+            letterSpacing="9"
+            fill="url(#darkGoldText)"
+          >
             NEXUS
-          </span>
-          <span className="h-px w-2 bg-[#F4C430]"></span>
-        </div>
-        <span className="pl-5 text-[9px] md:text-[10px] font-extrabold text-[#0284C7] tracking-[0.38em] uppercase">
-          CARE
-        </span>
-        <span className={`text-[8px] italic font-medium tracking-tight mt-0.5 hidden sm:inline ${isLight ? 'text-slate-300' : 'text-[#64748B]'}`}>
-          One Nexus. Endless Opportunities.
-        </span>
-      </div>
-    </div>
+          </text>
+
+          <line
+            x1="38"
+            y1="0"
+            x2="155"
+            y2="0"
+            stroke="url(#darkGoldText)"
+            strokeWidth="2"
+          />
+        </g>
+
+        {/* CARE */}
+        <g transform="translate(250, 392)">
+          <line
+            x1="-115"
+            y1="0"
+            x2="-28"
+            y2="0"
+            stroke="#475569"
+            strokeWidth="1.2"
+          />
+
+          <text
+            x="0"
+            y="6"
+            fontFamily="Arial, Helvetica, sans-serif"
+            fontSize="18"
+            fontWeight="600"
+            letterSpacing="11"
+            fill={isLight ? '#E2E8F0' : '#334155'}
+          >
+            CARE
+          </text>
+
+          <line
+            x1="28"
+            y1="0"
+            x2="115"
+            y2="0"
+            stroke="#475569"
+            strokeWidth="1.2"
+          />
+        </g>
+
+        {/* TAGLINE */}
+        <g transform="translate(250, 428)">
+          <line
+            x1="-165"
+            y1="-4"
+            x2="-95"
+            y2="-4"
+            stroke="#64748B"
+            strokeWidth="1"
+            opacity="0.8"
+          />
+
+          <text
+            x="0"
+            y="0"
+            fontFamily="Arial, Helvetica, sans-serif"
+            fontSize="12.5"
+            fontWeight="600"
+            letterSpacing="1.5"
+            fill={isLight ? '#CBD5E1' : '#475569'}
+          >
+            One Nexus. Endless Opportunities.
+          </text>
+
+          <line
+            x1="95"
+            y1="-4"
+            x2="165"
+            y2="-4"
+            stroke="#64748B"
+            strokeWidth="1"
+            opacity="0.8"
+          />
+        </g>
+
+      </g>
+    </svg>
   );
 };
+
+export { PranavaNexusCareLogo as Logo };
+export default PranavaNexusCareLogo;

@@ -42,14 +42,14 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, navigate, openEnqui
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
       {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex h-20 items-center justify-between gap-3">
           {/* Logo */}
           <button
-            onClick={() => handleNav('/')}
-            className="flex items-center text-left focus:outline-hidden"
-          >
-            <Logo />
-          </button>
+        onClick={() => handleNav('/')}
+        className="flex shrink-0 items-center text-left focus:outline-hidden"
+      >
+        <Logo className="h-7 w-auto max-w-none sm:h-8 lg:h-9" />
+      </button>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden xl:flex items-center space-x-1 lg:space-x-2">
