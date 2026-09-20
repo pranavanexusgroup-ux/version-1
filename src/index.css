@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@keyframes medical-tourism-orbit {
+	from {
+		transform: translate(-50%, -50%) rotate(var(--node-angle)) translateY(calc(-1 * clamp(120px, 20vw, 170px))) rotate(calc(-1 * var(--node-angle)));
+	}
+	to {
+		transform: translate(-50%, -50%) rotate(calc(var(--node-angle) + 360deg)) translateY(calc(-1 * clamp(120px, 20vw, 170px))) rotate(calc(-1 * (var(--node-angle) + 360deg)));
+	}
+}
+
+.medical-tourism-orbit-node {
+	animation: medical-tourism-orbit 36s linear infinite;
+	will-change: transform;
+}
+
+.partner-carousel-track {
+	scrollbar-width: none;
+}
+
+.partner-carousel-track::-webkit-scrollbar {
+	display: none;
+}
+
+.partner-card {
+	width: calc((100% - 100px) / 6);
+}
+
+@media (max-width: 1023px) {
+	.partner-card {
+		width: calc((100% - 40px) / 3);
+	}
+}
+
+@media (max-width: 639px) {
+	.partner-card {
+		width: calc((100% - 20px) / 2);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.medical-tourism-orbit-node {
+		animation: none;
+	}
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Pranava Nexus Care",
+  "description": "Global Medical Tourism and Healthcare-Travel Coordination. Connecting patients with verified medical journeys, hospital coordination, and travel support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
