@@ -38,6 +38,13 @@ jobs:
       - name: Build frontend
         run: npm run build
 
+      - name: Verify build output
+        run: |
+          echo "===== DIST FILES ====="
+          find dist -maxdepth 2 -type f | sort
+          echo "===== DIST INDEX ====="
+          cat dist/index.html
+
       - name: Add SPA fallback
         run: cp dist/index.html dist/404.html
 
