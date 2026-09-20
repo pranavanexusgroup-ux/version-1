@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Facebook, ExternalLink, Share2, Youtube } from 'lucide-react';
 import { api } from '../services/api';
 import { SocialMediaItem } from '../types';
+const ASSET_BASE = import.meta.env.BASE_URL;
 
 function getYouTubeThumbnail(url: string) {
   try {
@@ -41,7 +42,7 @@ export const SocialEngagementSection: React.FC = () => {
             platform: item.platform,
             title: item.platform === 'Facebook' ? 'Follow us on Facebook' : 'Watch us on YouTube',
             url: item.url,
-            thumbnail_url: '/assets/images/patient-coordination-hero.jpg',
+            thumbnail_url: `${ASSET_BASE}assets/images/patient-coordination-hero.jpg`,
             sort_order: index + 1,
             is_active: 1
           }));

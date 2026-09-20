@@ -12,7 +12,7 @@ export interface SEOProps {
 
 const DEFAULT_TITLE = 'Global Medical Tourism Services | Pranava Nexus Care';
 const DEFAULT_DESCRIPTION = 'Pranava Nexus Care provides structured medical tourism coordination for patients and families seeking treatment in India and verified global destinations. Hospital appointments, travel, and care planning.';
-const DEFAULT_IMAGE = '/assets/images/patient-coordination-hero.jpg';
+const DEFAULT_IMAGE = `${import.meta.env.BASE_URL}assets/images/patient-coordination-hero.jpg`;
 
 export function useSEO({
   title,

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSlideshow } from '../hooks/useSlideshow';
 import { useImagePreloader } from '../hooks/useImagePreloader';
+const ASSET_BASE = import.meta.env.BASE_URL;
 import {
   ChevronLeft,
   ChevronRight,
@@ -26,8 +27,8 @@ export interface SlideItem {
 const PATIENT_COORDINATION_SLIDES: SlideItem[] = [
   {
     id: 1,
-    image: '/assets/images/patient-coordination-hero.jpg',
-    webp: '/assets/images/patient-coordination-hero.webp',
+    image: `${ASSET_BASE}assets/images/patient-coordination-hero.jpg`,
+    webp: `${ASSET_BASE}assets/images/patient-coordination-hero.webp`,
     title: 'Specialist Consultation & Hospital Liaison',
     subtitle: 'Pre-Travel Medical Dossier Review',
     tag: 'Clinical Records & Appointment Coordination',
@@ -36,8 +37,8 @@ const PATIENT_COORDINATION_SLIDES: SlideItem[] = [
   },
   {
     id: 2,
-    image: '/assets/images/patient-escort-airport.jpg',
-    webp: '/assets/images/patient-escort-airport.webp',
+    image: `${ASSET_BASE}assets/images/patient-escort-airport.jpg`,
+    webp: `${ASSET_BASE}assets/images/patient-escort-airport.webp`,
     title: 'International Arrival & Attendant Escort',
     subtitle: 'FRRO & Airport Reception Protocol',
     tag: 'Airport Transit & Luggage Assistance',
@@ -46,8 +47,8 @@ const PATIENT_COORDINATION_SLIDES: SlideItem[] = [
   },
   {
     id: 3,
-    image: '/assets/images/doctor-patient-consult.jpg',
-    webp: '/assets/images/doctor-patient-consult.webp',
+    image: `${ASSET_BASE}assets/images/doctor-patient-consult.jpg`,
+    webp: `${ASSET_BASE}assets/images/doctor-patient-consult.webp`,
     title: 'Diagnostic Review & Second Opinion',
     subtitle: 'Super-Specialist Medical Guidance',
     tag: 'Accredited Multi-Disciplinary Care',
@@ -56,8 +57,8 @@ const PATIENT_COORDINATION_SLIDES: SlideItem[] = [
   },
   {
     id: 4,
-    image: '/assets/images/patient-recovery-care.jpg',
-    webp: '/assets/images/patient-recovery-care.webp',
+    image: `${ASSET_BASE}assets/images/patient-recovery-care.jpg`,
+    webp: `${ASSET_BASE}assets/images/patient-recovery-care.webp`,
     title: 'Dedicated Attendant Care & Recovery Liaison',
     subtitle: 'Continuous Patient & Family Well-being',
     tag: 'Post-Procedure Attendant Support',

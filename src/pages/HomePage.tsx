@@ -91,7 +91,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate, openEnquiryModal }
       'pranava nexus care'
     ],
     canonicalUrl: 'https://pranavanexuscare.com/',
-    ogImage: '/assets/images/patient-coordination-hero.jpg',
+    ogImage: `${import.meta.env.BASE_URL}assets/images/patient-coordination-hero.jpg`,
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
