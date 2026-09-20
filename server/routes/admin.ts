@@ -786,6 +786,23 @@ adminRouter.put('/settings', requireAuth, requireRole(['super-admin', 'admin']),
   }
 });
 
+// POST /api/admin/sync-google-reviews
+adminRouter.post('/sync-google-reviews', requireAuth, requireRole(['super-admin', 'admin']), (_req: AuthenticatedRequest, res: Response) => {
+  const googleSettings = db.prepare('SELECT place_id, api_key, is_configured FROM google_business_settings WHERE id = 1').get() as any;
+
+  if (!googleSettings?.place_id || !googleSettings?.api_key || !googleSettings?.is_configured) {
+    return res.status(503).json({
+      success: false,
+      message: 'Google Reviews sync is not configured. Add a Place ID and server-side Google API key first.'
+    });
+  }
+
+  return res.status(501).json({
+    success: false,
+    message: 'Google Reviews sync is not available yet. The integration credentials are saved, but no provider sync has been enabled.'
+  });
+});
+
 // ---------------------- USERS & ROLES ----------------------
 
 // GET /api/admin/users
