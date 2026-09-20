@@ -41,17 +41,27 @@ jobs:
       - name: Verify build output
         run: |
           echo "===== DIST FILES ====="
-          find dist -maxdepth 2 -type f | sort
-          echo "===== DIST INDEX ====="
+          find dist -maxdepth 3 -type f | sort
+
+          echo "===== DIST INDEX.HTML ====="
           cat dist/index.html
 
       - name: Add SPA fallback
-        run: cp dist/index.html dist/404.html
+        run: |
+          cp dist/index.html dist/404.html
+
+      - name: Prepare GitHub Pages artifact
+        run: |
+          rm -rf ./pages
+          mkdir -p ./pages
+          cp -R ./dist/. ./pages/
+
+          echo "DEPLOYMENT_TEST" > ./pages/deployment-test.txt
 
       - name: Upload frontend artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./pages
 
   deploy:
     environment:
