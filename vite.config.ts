@@ -6,7 +6,7 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     base: process.env.NODE_ENV === 'production'
-      ? (process.env.VITE_BASE_PATH || '/version-1/')
+      ? (process.env.VITE_BASE_PATH || '/')
       : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
